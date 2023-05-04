@@ -7,8 +7,10 @@ import DeleteForm from "./DeleteForm";
 import EditForm from "./EditForm";
 
 const Task = ({ task }) => {
+
   const [taskEditForm, setTaskEditForm] = useState(false);
   const [taskDeleteForm, setTaskDeleteForm] = useState(false);
+  
 
   return (
 

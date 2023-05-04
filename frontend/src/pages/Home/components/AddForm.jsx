@@ -19,7 +19,10 @@ import axios from "axios";
 import dayjs from "dayjs";
 import "../../../css/Home/AddForm.css";
 
+
 const AddForm = ({ addForm, setAddForm }) => {
+
+
   const [tileName, setTileName] = useState("");
   const [launchDate, setLaunchDate] = useState(null);
   const [status, setStatus] = useState("");
@@ -42,17 +45,22 @@ const AddForm = ({ addForm, setAddForm }) => {
     event.preventDefault();
 
     try {
+
       axios.post(
         `http://127.0.0.1:8000/inclingApp/tiles/`,
         JSON.parse(data)
+
       );
+
       // console.log("HIHIHI" + response.data);
     } catch (error) {
       // console.log("ERROR" + error);
+
     }
 
     setAddForm(false);
     window.location.reload();
+
   };
 
   const handleTileNameChange = (event) => {
@@ -65,70 +73,86 @@ const AddForm = ({ addForm, setAddForm }) => {
 
   return (
     <div>
-      {addForm == true ? (
-        <Dialog
-          className="formInputBoxOutter"
-          sx={{ maxWidth: "60%" }}
-          open={addForm}
-          //onClose={handleSubmit}
-        >
+
+      {addForm == true 
+
+        ? (
+        
+          <Dialog
+              className="formInputBoxOutter" sx={{ maxWidth: "60%" }} open={addForm}
+          >
+
           <div>
-            <DialogTitle className="formTitleName"> Change Tile Content</DialogTitle>
+
+            <DialogTitle className="formTitleName"> Create New Tile</DialogTitle>
+
             <DialogContent className="formInputBoxContent">
+
               <div className="tileNameInputRow">
-                <TextField className="tileNameTextField" label="Tile Name" onChange={handleTileNameChange} />
+
+                  <TextField className="tileNameTextField" label="Tile Name" onChange={handleTileNameChange} />
+
               </div>
 
               <div className="tileNameInputRow">
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["DatePicker"]}>
-                    <DatePicker
-                      dateFormat="YYYY-MM-DD"
-                      label="Launch Date"
-                      value={launchDate}
-                      onChange={(newLaunchDate) =>
-                        setLaunchDate(dayjs(newLaunchDate).format("YYYY-MM-DD"))
-                      }
-                    />
-                  </DemoContainer>
-                </LocalizationProvider>
+
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+
+                    <DemoContainer components={["DatePicker"]}>
+                      
+                      <DatePicker
+
+                            dateFormat="YYYY-MM-DD" label="Launch Date"
+                            value={launchDate} onChange={(newLaunchDate) =>
+                              setLaunchDate(dayjs(newLaunchDate).format("YYYY-MM-DD"))}
+
+                      />
+
+                    </DemoContainer>
+
+                  </LocalizationProvider>
+
               </div>
 
               <div className="statusInputRow">
+
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
+
                   <InputLabel id="demo-simple-select-helper-label">Status</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-helper-label"
-                    label="Status"
-                    className="statusTextField"
-                    value={status}
-                    onChange={handleStatusChange}
+                    
+                  <Select labelId="demo-simple-select-helper-label"
+                          label="Status" className="statusTextField"
+                          value={status} onChange={handleStatusChange}
                   >
+
                     {statuses.map((status) => (
-                      <MenuItem value={status}>
-                        <em>{status}</em>
-                      </MenuItem>
-                    ))}
-                    ;
+                      <MenuItem value={status}>     <em>{status}</em>    </MenuItem>
+                    ))};
+
                   </Select>
+
                 </FormControl>
+                    
               </div>
 
-              <div className="buttonSection">    
+              <div className="buttonSection"> 
+
                 <Button onClick={handleAddFormSelectEnter}>Add</Button>
-                <Button
-                  onClick={() => {
-                    setAddForm(false);
-                  }}
-                >
-                  Cancel
-                </Button>
+                      
+                <Button onClick={() => {setAddForm(false)}}>Cancel</Button>
+
               </div>
+
             </DialogContent>
+
           </div>
+
         </Dialog>
+
       ) : null}
+
     </div>
   );
 };
+
 export default AddForm;

@@ -19,11 +19,15 @@ import axios from "axios";
 import dayjs from "dayjs";
 import "../../../css/Home/EditForm.css";
 
+
 const EditForm = ({ tile, editForm, setEditForm }) => {
+
+
   const [tileName, setTileName] = useState("");
   const [launchDate, setLaunchDate] = useState(null);
   const [status, setStatus] = useState("");
   const statuses = ["LIVE", "DRAFTS", "PENDING", "ARCHIVED"];
+
 
   console.log("ABC" + tileName);
   console.log("DEF" + launchDate);
@@ -31,9 +35,9 @@ const EditForm = ({ tile, editForm, setEditForm }) => {
 
 
   const handleEditFormSelectEnter = async (event) => {
-    var tile_pk = tile.pk;
+
     let data = JSON.stringify({
-      pk: tile_pk,
+      pk: tile.pk,
       tile_name: tileName,
       launch_date: launchDate,
       status: status,
@@ -43,14 +47,17 @@ const EditForm = ({ tile, editForm, setEditForm }) => {
     event.preventDefault();
 
     try {
+
       const response = await axios.put(
-        `http://127.0.0.1:8000/inclingApp/tile${tile_pk}/`,
+        `http://127.0.0.1:8000/inclingApp/tile${tile.pk}/`,
         JSON.parse(data)
       );
       console.log("HIHIHI" + response.data);
     } catch (error) {
       console.log("ERROR" + error);
+
     }
+
 
     setEditForm(false);
     window.location.reload();
@@ -67,69 +74,82 @@ const EditForm = ({ tile, editForm, setEditForm }) => {
   return (
     <div>
       {editForm == true ? (
-        <Dialog
-          className="formInputBoxOutter"
-          sx={{ maxWidth: "60%" }}
-          open={editForm}
-          //onClose={handleSubmit}
-        >
+        <Dialog className="formInputBoxOutter" sx={{ maxWidth: "60%" }} open={editForm}>
+
           <div>
+
             <DialogTitle className="formTitleName"> Change Tile Content</DialogTitle>
+
             <DialogContent className="formInputBoxContent">
+
               <div className="tileNameInputRow">
+
                 <TextField className="tileNameTextField" label="Tile Name" onChange={handleTileNameChange} />
+              
               </div>
 
               <div className="tileNameInputRow">
+
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
+
                   <DemoContainer components={["DatePicker"]}>
-                    <DatePicker
-                      dateFormat="YYYY-MM-DD"
-                      label="Launch Date"
-                      value={tile.launchDate}
-                      onChange={(newLaunchDate) =>
-                        setLaunchDate(dayjs(newLaunchDate).format("YYYY-MM-DD"))
-                      }
+
+                    <DatePicker dateFormat="YYYY-MM-DD" label="Launch Date"
+                                value={tile.launchDate}
+                                onChange={(newLaunchDate) => setLaunchDate(dayjs(newLaunchDate).format("YYYY-MM-DD"))}
                     />
+
                   </DemoContainer>
+
                 </LocalizationProvider>
+
               </div>
 
               <div className="statusInputRow">
+
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
+
                   <InputLabel id="demo-simple-select-helper-label">Status</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-helper-label"
-                    label="Status"
-                    className="statusTextField"
-                    value={status}
-                    onChange={handleStatusChange}
+
+                  <Select labelId="demo-simple-select-helper-label" label="Status"
+                          className="statusTextField" value={status}
+                          onChange={handleStatusChange}
                   >
+
                     {statuses.map((status) => (
                       <MenuItem value={status}>
                         <em>{status}</em>
                       </MenuItem>
-                    ))}
-                    ;
+                    ))};
+
                   </Select>
+
                 </FormControl>
+
               </div>
 
-              <div className="buttonSection">    
+              <div className="buttonSection">   
+
                 <Button onClick={handleEditFormSelectEnter}> Enter</Button>
+
                 <Button
-                  onClick={() => {
-                    setEditForm(false);
-                  }}
+                  onClick={() => {setEditForm(false)}}
                 >
                   Cancel
                 </Button>
+
               </div>
+
             </DialogContent>
+
           </div>
+
         </Dialog>
+
       ) : null}
+
     </div>
   );
 };
+
 export default EditForm;

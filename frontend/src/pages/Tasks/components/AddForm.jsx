@@ -20,6 +20,8 @@ import dayjs from "dayjs";
 import "../../../css/Home/AddForm.css";
 
 const AddForm = ({ tileId, addForm, setAddForm }) => {
+
+
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [orderField, setOrderField] = useState("");
@@ -48,17 +50,21 @@ const AddForm = ({ tileId, addForm, setAddForm }) => {
     event.preventDefault();
 
     try {
+
       axios.post(
         `http://127.0.0.1:8000/inclingApp/tasks/`,
         JSON.parse(data)
       );
       // console.log("HIHIHI" + response.data);
-    } catch (error) {
+      } catch (error) {
       // console.log("ERROR" + error);
+
     }
 
     setAddForm(false);
+
     window.location.reload();
+
   };
 
 
@@ -78,82 +84,108 @@ const AddForm = ({ tileId, addForm, setAddForm }) => {
     setType(event.target.value);
   };
 
+
   return (
+
     <div>
-      {addForm == true ? (
-        <Dialog
-          className="formInputBoxOutter"
-          sx={{ maxWidth: "60%" }}
-          open={addForm}
-          //onClose={handleSubmit}
-        >
-          <div>
-            <DialogTitle className="formTitleName"> Create Task Content</DialogTitle>
-            <DialogContent className="formInputBoxContent">
-              <div className="tileNameInputRow">
-                <TextField className="tileNameTextField" label="Task Name" onChange={handleTaskNameChange} />
-              </div>
 
-              <div className="tileNameInputRow">
-                <TextField className="tileNameTextField" label="Task Description" onChange={handleTaskDescriptionChange} />
-              </div>
+      {addForm == true 
+      
+        ? (
+          <Dialog className="formInputBoxOutter" sx={{ maxWidth: "60%" }}open={addForm}>
 
-              <div className="statusInputRow">
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                  <InputLabel id="demo-simple-select-helper-label">Order Field Option</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-helper-label"
-                    label="Order Field Option"
-                    className="statusTextField"
-                    value={orderField}
-                    onChange={handleOrderFieldChange}
-                  >
-                    {orderFieldChoices.map((orderField) => (
-                      <MenuItem value={orderField}>
-                        <em>{orderField}</em>
-                      </MenuItem>
-                    ))}
-                    ;
-                  </Select>
-                </FormControl>
-              </div>
+            <div>
+
+              <DialogTitle className="formTitleName"> Create Task Content</DialogTitle>
+
+              <DialogContent className="formInputBoxContent">
+
+
+                <div className="tileNameInputRow">
+
+                  <TextField className="tileNameTextField" label="Task Name" onChange={handleTaskNameChange} />
                 
-              <div className="statusInputRow">
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                  <InputLabel id="demo-simple-select-helper-label">Task Type Option</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-helper-label"
-                    label="Task Type Option"
-                    className="statusTextField"
-                    value={type}
-                    onChange={handleTypeChange}
-                  >
-                    {typeChoices.map((type) => (
-                      <MenuItem value={type}>
-                        <em>{type}</em>
-                      </MenuItem>
-                    ))}
-                    ;
-                  </Select>
-                </FormControl>
-              </div>
+                </div>
+
+                <div className="tileNameInputRow">
+
+                  <TextField className="tileNameTextField" label="Task Description" onChange={handleTaskDescriptionChange} />
+                
+                </div>
+
+                <div className="statusInputRow">
+
+                  <FormControl sx={{ m: 1, minWidth: 120 }}>
+
+                    <InputLabel id="demo-simple-select-helper-label">Order Field Option</InputLabel>
+                    
+                    <Select labelId="demo-simple-select-helper-label"
+                      label="Order Field Option" className="statusTextField"
+                      value={orderField} onChange={handleOrderFieldChange}
+                    >
+
+                      {orderFieldChoices.map((orderField) => (
+
+                        <MenuItem value={orderField}>
+
+                          <em>{orderField}</em>
+
+                        </MenuItem>
+
+                      ))};
+
+                    </Select>
+
+                  </FormControl>
+
+                </div>
+                  
+                <div className="statusInputRow">
+
+                  <FormControl sx={{ m: 1, minWidth: 120 }}>
+
+                    <InputLabel id="demo-simple-select-helper-label">Task Type Option</InputLabel>
+
+                    <Select labelId="demo-simple-select-helper-label"
+                      label="Task Type Option" className="statusTextField"
+                      value={type} onChange={handleTypeChange}
+                    >
+
+                      {typeChoices.map((type) => (
+
+                        <MenuItem value={type}>
+
+                          <em>{type}</em>
+
+                        </MenuItem>
+
+                      ))};
+
+                    </Select>
+
+                  </FormControl>
+
+                </div>
 
 
-              <div className="buttonSection">    
-                <Button onClick={handleAddFormSelectEnter}>Add</Button>
-                <Button
-                  onClick={() => {
-                    setAddForm(false);
-                  }}
-                >
-                  Cancel
-                </Button>
-              </div>
-            </DialogContent>
-          </div>
-        </Dialog>
+                <div className="buttonSection"> 
+
+                  <Button onClick={handleAddFormSelectEnter}>Add</Button>
+
+                  <Button onClick={() => {setAddForm(false)}}>Cancel</Button>
+
+                </div>
+
+              </DialogContent>
+
+            </div>
+
+          </Dialog>
+
       ) : null}
+
     </div>
   );
 };
+
 export default AddForm;

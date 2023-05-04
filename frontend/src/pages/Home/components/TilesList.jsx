@@ -1,9 +1,10 @@
 import { Box, Grid } from "@mui/material";
 import Tile from "./Tile";
-import { SwipeableDrawer } from '@mui/material';
+
 
 const TilesList = ({ filteredTiles, activeStatus }) => {
-console.log("filter" + JSON.stringify(filteredTiles));
+  
+// console.log("filter" + JSON.stringify(filteredTiles));
 
   return (
     <div className="tiles">

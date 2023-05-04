@@ -21,6 +21,8 @@ import "../../../css/Home/EditForm.css";
 
 
 const EditForm = ({ task, editForm, setEditForm }) => {
+
+
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [orderField, setOrderField] = useState("");
@@ -48,12 +50,13 @@ const EditForm = ({ task, editForm, setEditForm }) => {
     event.preventDefault();
 
     try {
+
       const response = await axios.put(
         `http://127.0.0.1:8000/inclingApp/task${task.id}/`,
         JSON.parse(data)
       );
       // console.log("HIHIHI" + response.data);
-    } catch (error) {
+      } catch (error) {
       // console.log("ERROR" + error);
     }
 
@@ -77,81 +80,108 @@ const EditForm = ({ task, editForm, setEditForm }) => {
     setType(event.target.value);
   };
 
+
   return (
+
+
     <div>
-      {editForm == true ? (
-        <Dialog
-          className="formInputBoxOutter"
-          sx={{ maxWidth: "60%" }}
-          open={editForm}
-        >
-          <div>
-            <DialogTitle className="formTitleName"> Change Task Content</DialogTitle>
-            <DialogContent className="formInputBoxContent">
-              <div className="tileNameInputRow">
-                <TextField className="tileNameTextField" label="Task Name" onChange={handleTaskNameChange} />
-              </div>
 
-              <div className="tileNameInputRow">
-                <TextField className="tileNameTextField" label="Task Description" onChange={handleTaskDescriptionChange} />
-              </div>
-             
+      {editForm == true 
+      
+        ? (
 
-              <div className="statusInputRow">
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                  <InputLabel id="demo-simple-select-helper-label">Task Priority</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-helper-label"
-                    label="Status"
-                    className="statusTextField"
-                    value={orderField}
-                    onChange={handleOrderFieldChange}
-                  >
-                    {orderFieldChoices.map((order) => (
-                      <MenuItem value={order}>
-                        <em>{order}</em>
-                      </MenuItem>
-                    ))}
-                    ;
-                  </Select>
-                </FormControl>
-              </div>
+          <Dialog className="formInputBoxOutter" sx={{ maxWidth: "60%" }} open={editForm}>
 
-              <div className="statusInputRow">
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                  <InputLabel id="demo-simple-select-helper-label">Task Type</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-helper-label"
-                    label="Status"
-                    className="statusTextField"
-                    value={type}
-                    onChange={handleTypeChange}
-                  >
-                    {typeFieldChoices.map((type) => (
-                      <MenuItem value={type}>
-                        <em>{type}</em>
-                      </MenuItem>
-                    ))}
-                    ;
-                  </Select>
-                </FormControl>
-              </div>
+            <div>
 
-              <div className="buttonSection">    
-                <Button onClick={handleEditFormSelectEnter}>Enter</Button>
-                <Button
-                  onClick={() => {
-                    setEditForm(false);
-                  }}
-                >
-                  Cancel
-                </Button>
-              </div>
-            </DialogContent>
-          </div>
-        </Dialog>
+              <DialogTitle className="formTitleName"> Change Task Content</DialogTitle>
+
+              <DialogContent className="formInputBoxContent">
+
+                <div className="tileNameInputRow">
+
+                  <TextField className="tileNameTextField" label="Task Name" onChange={handleTaskNameChange} />
+                
+                </div>
+
+                
+                <div className="tileNameInputRow">
+                  
+                  <TextField className="tileNameTextField" label="Task Description" onChange={handleTaskDescriptionChange} />
+                
+                </div>
+              
+
+                <div className="statusInputRow">
+
+                  <FormControl sx={{ m: 1, minWidth: 120 }}>
+
+                    <InputLabel id="demo-simple-select-helper-label">Task Priority</InputLabel>
+
+                    <Select
+                      labelId="demo-simple-select-helper-label"
+                      label="Status" className="statusTextField"
+                      value={orderField}
+                      onChange={handleOrderFieldChange}
+                    >
+
+                      {orderFieldChoices.map((order) => (
+                        <MenuItem value={order}>
+                          <em>{order}</em>
+                        </MenuItem>
+                      ))};
+
+                    </Select>
+
+                  </FormControl>
+
+                </div>
+
+
+                <div className="statusInputRow">
+
+                  <FormControl sx={{ m: 1, minWidth: 120 }}>
+
+                    <InputLabel id="demo-simple-select-helper-label">Task Type</InputLabel>
+                    
+                    <Select labelId="demo-simple-select-helper-label" label="Status"
+                      className="statusTextField" value={type}
+                      onChange={handleTypeChange}
+                    >
+
+                      {typeFieldChoices.map((type) => (
+                        <MenuItem value={type}>
+                          <em>{type}</em>
+                        </MenuItem>
+                      ))};
+
+                    </Select>
+
+                  </FormControl>
+
+                </div>
+
+
+                <div className="buttonSection">  
+
+                  <Button onClick={handleEditFormSelectEnter}>Enter</Button>
+
+                  <Button onClick={() => {setEditForm(false)}}>Cancel</Button>
+
+                </div>
+
+              </DialogContent>
+
+            </div>
+
+          </Dialog>
+
       ) : null}
+
     </div>
+    
   );
 };
+
+
 export default EditForm;
