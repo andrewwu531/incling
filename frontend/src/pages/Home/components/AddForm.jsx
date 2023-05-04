@@ -88,7 +88,7 @@ const AddForm = ({ addForm, setAddForm }) => {
 
             <DialogContent>
 
-                  <TextField className="tile-edit-form-tile-name-box" label="Tile Name" onChange={handleTileNameChange} />
+                  <TextField className="tile-create-form-tile-name-box" label="Tile Name" onChange={handleTileNameChange} />
 
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
 
