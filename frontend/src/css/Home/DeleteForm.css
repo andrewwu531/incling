@@ -1,45 +1,21 @@
-
-.formInputBoxOutter {
+.tile-delete-form-container {
     margin-left: 20%;
 }
 
-
-.formTitleName {
-    font-weight: bold;
-    text-align: center;
-    margin-top: 3%
-}
-
-.formInputBoxContent {
-    display: flex;
-    flex-direction: column;
-    margin-top:8%;
-    margin-bottom: 5%;
-    margin-right: 2.5%;
-    text-align: center;
-}
-
-.tileNameInputRow {
-    margin-top: 2%;
-    margin-left: 3%;
-}
-
-.statusInputRow {
-    margin-top: 2%;
-}
-
-.tileNameTextField {
-    width: 100%;
-}
-
-.statusTextField {
-    width: 205%;
-}
-
-.buttonSection {
+.tile-delete-form-tile-text {
     display: flex;
     justify-content: center;
-    margin-top: 8%;
-    gap: 9%;
-    margin-left: 4%;
+}
+
+.tile-delete-form-message {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.tile-delete-form-yes-cancel-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 8%;
 }

@@ -44,25 +44,20 @@ const DeleteForm = ({ tile, deleteForm, setDeleteForm }) => {
       {deleteForm == true 
 
       ? (  
-            <Dialog className="formInputBoxOutter" 
-                   sx={{ maxWidth: "60%" }} open={deleteForm}
-            >
+            <Dialog sx={{ maxWidth: "60%" }} open={deleteForm} className="tile-delete-form-container">
 
-              <div>
+                <DialogTitle className="tile-delete-form-tile-text">Delete Tile</DialogTitle>
 
-                <DialogTitle className="formTitleName"> Delete Tile Content</DialogTitle>
-
-                <DialogContent className="formInputBoxContent"> Are you sure about deleting this tile?</DialogContent>
+                <DialogContent className="tile-delete-form-message">Are you sure about deleting this tile?</DialogContent>
                       
-                <div className="buttonSection">   
+                <div className="tile-delete-form-yes-cancel-group">   
 
                     <Button onClick={handleDeleteFormSelectEnter}> Enter</Button>
                         
                     <Button onClick={() => {setDeleteForm(false)}}>Cancel</Button>
                       
                 </div>
-                    
-              </div>
+                  
 
             </Dialog>
 

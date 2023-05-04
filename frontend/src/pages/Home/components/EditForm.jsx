@@ -72,23 +72,24 @@ const EditForm = ({ tile, editForm, setEditForm }) => {
   };
 
   return (
+
+
     <div>
+
       {editForm == true ? (
-        <Dialog className="formInputBoxOutter" sx={{ maxWidth: "60%" }} open={editForm}>
+        
+        <Dialog className="tile-edit-form-container" sx={{ maxWidth: "60%" }} open={editForm}>
 
-          <div>
 
-            <DialogTitle className="formTitleName"> Change Tile Content</DialogTitle>
+            <div className="tile-edit-form-text-title-container">
 
-            <DialogContent className="formInputBoxContent">
+              <DialogTitle className="tile-edit-form-text-title">Edit Tile</DialogTitle>
 
-              <div className="tileNameInputRow">
+            </div>
 
-                <TextField className="tileNameTextField" label="Tile Name" onChange={handleTileNameChange} />
-              
-              </div>
+            <DialogContent>
 
-              <div className="tileNameInputRow">
+                <TextField className="tile-edit-form-tile-name-box" label="Tile Name" onChange={handleTileNameChange} />
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
 
@@ -103,16 +104,12 @@ const EditForm = ({ tile, editForm, setEditForm }) => {
 
                 </LocalizationProvider>
 
-              </div>
-
-              <div className="statusInputRow">
-
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <FormControl sx={{ m: 1, minWidth: 120 }} className="tile-edit-form-status-box">
 
                   <InputLabel id="demo-simple-select-helper-label">Status</InputLabel>
 
                   <Select labelId="demo-simple-select-helper-label" label="Status"
-                          className="statusTextField" value={status}
+                          value={status}
                           onChange={handleStatusChange}
                   >
 
@@ -126,9 +123,7 @@ const EditForm = ({ tile, editForm, setEditForm }) => {
 
                 </FormControl>
 
-              </div>
-
-              <div className="buttonSection">   
+              <div class="tile-edit-form-enter-cancel-container">   
 
                 <Button onClick={handleEditFormSelectEnter}> Enter</Button>
 
@@ -141,8 +136,6 @@ const EditForm = ({ tile, editForm, setEditForm }) => {
               </div>
 
             </DialogContent>
-
-          </div>
 
         </Dialog>
 

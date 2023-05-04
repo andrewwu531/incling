@@ -78,64 +78,51 @@ const AddForm = ({ addForm, setAddForm }) => {
 
         ? (
         
-          <Dialog
-              className="formInputBoxOutter" sx={{ maxWidth: "60%" }} open={addForm}
-          >
+          <Dialog className="tile-create-form-container" sx={{ maxWidth: "60%" }} open={addForm}>
 
-          <div>
+            <div className="tile-create-form-text-title-container">
 
-            <DialogTitle className="formTitleName"> Create New Tile</DialogTitle>
+              <DialogTitle className="tile-create-form-text-title">Create Tile</DialogTitle>
+            
+            </div>
 
-            <DialogContent className="formInputBoxContent">
+            <DialogContent>
 
-              <div className="tileNameInputRow">
-
-                  <TextField className="tileNameTextField" label="Tile Name" onChange={handleTileNameChange} />
-
-              </div>
-
-              <div className="tileNameInputRow">
+                  <TextField className="tile-edit-form-tile-name-box" label="Tile Name" onChange={handleTileNameChange} />
 
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
 
                     <DemoContainer components={["DatePicker"]}>
                       
-                      <DatePicker
-
-                            dateFormat="YYYY-MM-DD" label="Launch Date"
+                      <DatePicker dateFormat="YYYY-MM-DD" label="Launch Date"
                             value={launchDate} onChange={(newLaunchDate) =>
-                              setLaunchDate(dayjs(newLaunchDate).format("YYYY-MM-DD"))}
-
+                            setLaunchDate(dayjs(newLaunchDate).format("YYYY-MM-DD"))}
                       />
 
                     </DemoContainer>
 
                   </LocalizationProvider>
 
-              </div>
-
-              <div className="statusInputRow">
-
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <FormControl className="tile-create-form-status-box" sx={{ m: 1, minWidth: 120 }}>
 
                   <InputLabel id="demo-simple-select-helper-label">Status</InputLabel>
                     
                   <Select labelId="demo-simple-select-helper-label"
-                          label="Status" className="statusTextField"
+                          label="Status"
                           value={status} onChange={handleStatusChange}
                   >
 
                     {statuses.map((status) => (
-                      <MenuItem value={status}>     <em>{status}</em>    </MenuItem>
+
+                      <MenuItem value={status}>  <em>{status}</em>  </MenuItem>
+                      
                     ))};
 
                   </Select>
 
                 </FormControl>
-                    
-              </div>
 
-              <div className="buttonSection"> 
+              <div class="tile-create-form-enter-cancel-container"> 
 
                 <Button onClick={handleAddFormSelectEnter}>Add</Button>
                       
@@ -144,8 +131,6 @@ const AddForm = ({ addForm, setAddForm }) => {
               </div>
 
             </DialogContent>
-
-          </div>
 
         </Dialog>
 

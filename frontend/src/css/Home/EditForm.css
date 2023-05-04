@@ -1,44 +1,36 @@
 
-.formInputBoxOutter {
+
+
+.tile-edit-form-container {
+    /* background-color: red; */
     margin-left: 20%;
 }
 
-
-.formTitleName {
-    font-weight: bold;
-    text-align: center;
-    margin-top: 3%
-}
-
-.formInputBoxContent {
-    display: flex;
-    flex-direction: column;
-    margin-top:8%;
-    margin-bottom: 5%;
-    margin-right: 2.5%;
-}
-
-.tileNameInputRow {
-    margin-top: 2%;
-    margin-left: 3%;
-}
-
-.statusInputRow {
-    margin-top: 2%;
-}
-
-.tileNameTextField {
-    width: 100%;
-}
-
-.statusTextField {
-    width: 100%;
-}
-
-.buttonSection {
+.tile-edit-form-text-title{
     display: flex;
     justify-content: center;
-    margin-top: 8%;
-    gap: 9%;
-    margin-left: 4%;
+    /* background-color: blue; */
+}
+
+.tile-edit-form-text-title-container{
+    margin-top: 4%;
+}
+
+.tile-edit-form-tile-name-box {
+    /* background-color: aqua; */
+    width: 100%;
+}
+
+.tile-edit-form-status-box {
+    width: 100%;
+    /* background-color: brown; */
+    right: 3%;
+}
+
+.tile-edit-form-enter-cancel-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 6%;
+    margin-bottom: 3%;
 }
