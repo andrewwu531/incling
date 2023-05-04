@@ -1,0 +1,115 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.image-container {
+  width: 100%;
+  overflow-x: hidden;
+  margin-bottom: 10%;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.task-section {    
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 2%;
+}
+
+.task-container{
+  /* background-color: red; */
+  width: 110%;
+
+}
+
+.task-image {
+  display: block;
+  z-index: 1;
+}
+
+.task-go-status-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.task-go-button {
+    width:50px;
+    height: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center; 
+    flex-direction: row;
+    background-color: greenyellow;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    margin-top: -30px;
+    margin-left: 20px;
+}
+
+.task-status-box {
+    width: 100px;
+    height: 40px;
+    background-color: #2661c5;
+    font-family: Arial;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: -40px;
+    margin-right: 30px;
+}
+
+.task-edit-delete-button-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.task-content-container {
+  /* background-color: orange; */
+}
+
+.second-task-section {
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.task-task-edit-group {
+  margin-top: -20px;
+  /* background-color: orange; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.task-edit-button {
+  left: 5%;
+  top: -10px; 
+}
+
+.task-delete-button {
+  top: -10px;
+}
+
+.third-task-section {
+  font-size: 20px;
+  padding-bottom: 40px;
+}
+
+.last-task-section {
+  font-size: 15px;
+}

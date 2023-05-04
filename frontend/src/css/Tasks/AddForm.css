@@ -1,0 +1,45 @@
+
+.formInputBoxOutter {
+    margin-left: 20%;
+}
+
+
+.formTitleName {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3%
+}
+
+.formInputBoxContent {
+    display: flex;
+    flex-direction: column;
+    margin-top:8%;
+    margin-bottom: 5%;
+    margin-right: 2.5%;
+}
+
+.tileNameInputRow {
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.statusInputRow {
+    margin-top: 2%;
+}
+
+.tileNameTextField {
+    width: 100%;
+}
+
+.statusTextField {
+    width: 103%;
+    margin-right: 200px;
+}
+
+.buttonSection {
+    display: flex;
+    justify-content: center;
+    margin-top: 8%;
+    gap: 9%;
+    margin-left: 4%;
+}

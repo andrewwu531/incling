@@ -1,0 +1,66 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.image-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15vh;
+}
+
+.status_box {
+  height: 100px;
+  width: 150px;
+}
+
+.status_box1 {
+  background-color: #f9c74f;
+}
+
+.tiles-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.tiles-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.addButton {
+  margin-top: 150px;
+  margin-bottom: 100px;
+  margin-left: 50px;
+}
